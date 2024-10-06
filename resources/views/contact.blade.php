@@ -49,7 +49,7 @@
    <div class="container mb-5">
      <div class="card">
         <div class="card-body">
-         <h3 class="card-title">Feel in yor Feedback:</h3>
+         <h3 class="card-title">Feel in your Feedback:</h3>
             <form>
              <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Feel in here</label>

@@ -3,188 +3,103 @@
 @section('title', 'Products')
 
 @section('content')
-
-<!-- ===== Link Swiper's CSS ===== -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-<!--carousel-->
-
- 
-
- <!--<hr>-->
-
 <div class="container mt-5">
-<hr>
+    <hr>
 </div>
 
-<!--card 1-->
-
+<!-- Popular Products Section -->
 <div class="container">
     <h2 class="mt-5 fw-bold d-flex justify-content-center">Popular Right Now</h2>
-  </div>
-    <div class="container">
-      <div class="row mt-5">
-          <div class="col-12 col-lg-4 pt-2">
-              <div class="card">
-                   <img src="/public/images/DeathadderV3Pro.png" 
-                   class="card-img-top"/>
-                  <div class="card-box"> 
-                    <h5 class="card-title">Portfolio 1</h5>       
-                      <p>
-                        Description for Portfolio 1
-                      </p>
-                  </div>
-              </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 pt-2">
-            <div class="card">
-                 <img src="" 
-                 class="card-img-top"/>
-                <div class="card-box"> 
-                  <h5 class="card-title">Portfolio 2</h5>       
-                    <p>
-                      Description for Portfolio 2
-                    </p>
+</div>
+<div class="container text-center">
+    <div class="row mt-5 mb-5">
+        @foreach($popularProducts as $product)
+            <div class="col-12 col-md-6 col-lg-4 pt-2">
+                <div class="card rounded shadow-lg">
+                    <img src="{{ url($product->image) }}" alt="{{ $product->name }}" class="card-img-top"/>
+                    <div class="card-box">
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p>From RM {{ number_format($product->price, 2) }}</p>
+
+                        <!-- Modal Trigger Button -->
+                        <button type="button" class="btn btn-primary mt-2 mb-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $product->id }}">
+                            Add to cart
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-{{ $product->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $product->name }}</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to add this item to your cart?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 pt-2">
-          <div class="card">
-               <img src="" 
-               class="card-img-top"/>
-              <div class="card-box"> 
-                <h5 class="card-title">Portfolio 3</h5>       
-                  <p>
-                    Description for Portfolio 3
-                  </p>
-              </div>
-          </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 pt-2">
-        <div class="card">
-             <img src="" 
-             class="card-img-top"/>
-            <div class="card-box">  
-              <h5 class="card-title">Portfolio 4</h5>      
-                <p>
-                  Description for Portfolio 4
-                </p>
-            </div>
-        </div>
+        @endforeach
     </div>
-    <div class="col-12 col-md-6 col-lg-4 pt-2">
-      <div class="card">
-           <img src="" 
-           class="card-img-top"/>
-          <div class="card-box">
-            <h5 class="card-title">Portfolio 5</h5>        
-              <p>
-                Description for Portfolio 5
-              </p>
-          </div>
-      </div>
-  </div>
-  <div class="col-12 col-md-6 col-lg-4 pt-2">
-    <div class="card">
-         <img src="" 
-         class="card-img-top"/>
-        <div class="card-box"> 
-          <h5 class="card-title">Portfolio 6</h5>       
-            <p>
-              Description for Portfolio 6
-            </p>
-        </div>
-    </div>
-  </div>
- </div>
 </div>
-
-<!--<hr>-->
 
 <div class="container mt-5">
-<hr>
+    <hr>
 </div>
 
-<!--card 2-->
+<!-- Latest Products Section -->
+<div class="container mt-5">
+    <h2 class="mt-5 fw-bold d-flex justify-content-center">Latest Products</h2>
+</div>
+<div class="container text-center">
+    <div class="row mt-5 mb-5">
+        @foreach($latestProducts as $product)
+            <div class="col-12 col-md-6 col-lg-4 pt-2">
+                <div class="card rounded shadow-lg">
+                    <img src="{{ url($product->image) }}" alt="{{ $product->name }}" class="card-img-top"/>
+                    <div class="card-box">
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p>From RM {{ number_format($product->price, 2) }}</p>
 
-<div class="container">
-    <h2 class="mt-5 fw-bold d-flex justify-content-center">Checkout The Latest Release!</h2>
-  </div>
-    <div class="container">
-      <div class="row mt-5 mb-5">
-          <div class="col-12 col-md-6 col-lg-4 pt-2">
-              <div class="card">
-                   <img src="" 
-                   class="card-img-top"/>
-                  <div class="card-box"> 
-                    <h5 class="card-title">Portfolio 1</h5>       
-                      <p>
-                        Description for Portfolio 1
-                      </p>
-                  </div>
-              </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 pt-2">
-            <div class="card">
-                 <img src="" 
-                 class="card-img-top"/>
-                <div class="card-box"> 
-                  <h5 class="card-title">Portfolio 2</h5>       
-                    <p>
-                      Description for Portfolio 2
-                    </p>
+                        <!-- Modal Trigger Button -->
+                        <button type="button" class="btn btn-primary mt-2 mb-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $product->id }}">
+                            Add to cart
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-{{ $product->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $product->name }}</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to add this item to your cart?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 pt-2">
-          <div class="card">
-               <img src="" 
-               class="card-img-top"/>
-              <div class="card-box"> 
-                <h5 class="card-title">Portfolio 3</h5>       
-                  <p>
-                    Description for Portfolio 3
-                  </p>
-              </div>
-          </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 pt-2">
-        <div class="card">
-             <img src="" 
-             class="card-img-top"/>
-            <div class="card-box">  
-              <h5 class="card-title">Portfolio 4</h5>      
-                <p>
-                  Description for Portfolio 4
-                </p>
-            </div>
-        </div>
+        @endforeach
     </div>
-    <div class="col-12 col-md-6 col-lg-4 pt-2">
-      <div class="card">
-           <img src="" 
-           class="card-img-top"/>
-          <div class="card-box">
-            <h5 class="card-title">Portfolio 5</h5>        
-              <p>
-                Description for Portfolio 5
-              </p>
-          </div>
-      </div>
-  </div>
-  <div class="col-12 col-md-6 col-lg-4 pt-2">
-    <div class="card">
-         <img src="" 
-         class="card-img-top"/>
-        <div class="card-box"> 
-          <h5 class="card-title">Portfolio 6</h5>       
-            <p>
-              Description for Portfolio 6
-            </p>
-        </div>
-    </div>
-  </div>
- </div>
 </div>
 
-@endsection  
+<div class="container mt-5">
+    <hr>
+</div>
+@endsection

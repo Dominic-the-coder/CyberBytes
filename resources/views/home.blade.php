@@ -4,11 +4,6 @@
 
 @section('content')
 
-<link
-      rel="stylesheet"
-      href="{{ asset('css/style.css') }}"
-    />
-
 <!--content-->
 <div class="container-hero">
  <div class="overlay">

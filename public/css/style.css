@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Home Start */
 .container-hero {
     background-image: url("../images/01g8eqh7x3frj93nqfh2.jpg");
     background-size: cover;
@@ -22,7 +23,13 @@
     align-items: center;
     height: 80%;
 }
+/* Home End */
 
-hr{
+hr {
     height: 20px;
+}
+
+/* product start */
+.card {
+    border: none;
 }

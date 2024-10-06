@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\LogoutController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\CartController;
 Route::get('/', [ HomeController::class, 'loadHomePage' ]);
 
 //product page
-Route::get("/products", [ ProductsController::class, 'loadProductsPage' ]);
+// Route::get("/products", [ ProductsController::class, 'loadProductsPage' ]);
 
 //about page
 Route::get("/about", [ AboutController::class, 'loadAboutPage' ]);
@@ -59,6 +60,10 @@ Route::get("/logout", [
 
 Route::view('upload','upload');
 route::post('upload', [UploadController::class, 'upload']);
+
+
+Route::get('/products', [ProductController::class, 'index']);
+
 
 // Post routes
 /*
