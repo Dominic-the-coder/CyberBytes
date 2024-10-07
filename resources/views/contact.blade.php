@@ -5,9 +5,9 @@
 @section('content')
 
 <div class="container mt-5">
-        <div class="card">
+        <div class="card rounded shadow-lg">
            <div class="card-body">
-             <h3 class="card-title">Fill in your name:</h3>
+             <h3 class="card-title">Fill in your Name:</h3>
               <div class="row">
                 <div class="col">
                   <input type="text" class="form-control" placeholder="First name" aria-label="First name">
@@ -20,7 +20,7 @@
         </div>   
     </div>
    <div class="container mb-3 mt-3">
-     <div class="card">
+     <div class="card rounded shadow-lg">
         <div class="card-body">
          <h3 class="card-title">Fill in your Email:</h3>
              <form>
@@ -47,12 +47,12 @@
      </div>
    </div>
    <div class="container mb-5">
-     <div class="card">
+     <div class="card rounded shadow-lg">
         <div class="card-body">
-         <h3 class="card-title">Feel in your Feedback:</h3>
+         <h3 class="card-title">Fill in your Feedback:</h3>
             <form>
              <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Feel in here</label>
+              <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
              </div>
              <div class="d-grid">

@@ -13,21 +13,31 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\EditController;
 
-// home page
+// Home page
 Route::get('/', [ HomeController::class, 'loadHomePage' ]);
 
-//product page
+//Product page
 // Route::get("/products", [ ProductsController::class, 'loadProductsPage' ]);
 
-//about page
+//About page
 Route::get("/about", [ AboutController::class, 'loadAboutPage' ]);
 
-//contact page
+//Contact page
 Route::get("/contact", [ ContactController::class, 'loadContactPage' ]);
 
-//cart page
-Route::get("/cart", [ CartController::class, 'loadCartPage' ]);
+//Cart page
+Route::get("/cart", [ CartController::class, 'loadCartPage' ])->name('cart.view');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::put('/cart/edit/{id}', [CartController::class, 'editQuantity'])->name('cart.edit');
+
+//Edit page
+Route::put('/products/edit', [ProductController::class, 'updateProduct'])->name('product.edit');
+
+//Delete page
+Route::delete('/products/delete/{id}', [ProductController::class, 'deleteProduct'])->name('product.delete');
 
 // login page
 Route::get("/login", [
@@ -62,8 +72,7 @@ Route::view('upload','upload');
 route::post('upload', [UploadController::class, 'upload']);
 
 
-Route::get('/products', [ProductController::class, 'index']);
-
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 // Post routes
 /*
