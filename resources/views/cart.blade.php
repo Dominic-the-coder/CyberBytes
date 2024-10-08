@@ -3,8 +3,11 @@
 @section('title', 'Cart')
 
 @section('content')
-<div class="container mt-5">
-    <h2 class="fw-bold">Your Shopping Cart</h2>
+
+@if($user)
+<!-- Cart page -->
+<div class="container card rounded shadow-lg mt-5 mb-5">
+    <h2 class="fw-bold mt-3">Your Shopping Cart</h2>
 
     @if($userCart->isEmpty())
         <div class="alert alert-warning mt-4" role="alert">
@@ -34,20 +37,25 @@
                                     </div>
                                 </div>
                             </td>
+
+                            <!-- Price -->
                             <td>
                                 {{ $cartItem->quantity }}
                             </td>
                             <td>RM {{ number_format($cartItem->product->price, 2) }}</td>
                             <td>RM {{ number_format($cartItem->product->price * $cartItem->quantity, 2) }}</td>
                             <td>
+
+                            <!-- Button to trigger the modal -->
                                 <form action="{{ route('cart.remove', $cartItem->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                    <button type="submit" class="btn btn-danger mt-2 mb-2">Remove</button>
+                                
+                                    <button type="button" class="btn btn-success mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modal-{{ $cartItem->id }}">
+                                      Edit
+                                    </button>
                                 </form>
-                                <button type="button" class="btn btn-success mt-2 mb-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $cartItem->id }}">
-                            Edit
-                        </button>
 
                         <!-- Reusable Modal -->
                         <div class="modal fade" id="modal-{{ $cartItem->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,8 +97,12 @@
                     return $cartItem->product->price * $cartItem->quantity;
                 }), 2) }}
             </h4>
-            <a href="" class="btn btn-primary">Proceed to Checkout</a>
         </div>
     @endif
 </div>
+@else
+<?php
+abort(404)
+?>
+@endif
 @endsection

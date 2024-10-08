@@ -16,6 +16,6 @@ class LogoutController extends Controller
         $request->session()->regenerateToken();
 
         // redirect back to home page
-        return redirect('/');
+        return redirect('/signup');
     }
 }

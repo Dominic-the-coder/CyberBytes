@@ -4,7 +4,8 @@
 
 @section('content')
 
-<!--about us-->
+<!-- Why us-->
+@if($user)
 <div id="why-us" class="mt-3 mb-3">
       <div class="container">
         <div class="row">
@@ -59,7 +60,7 @@
       </div>
      </div>
 
-<!--our services-->     
+<!-- Our services -->     
 <div id="services" class="mb-3">
       <h2 class="text-center display-4 fw-bold mb-5">Our Services</h2>
       <div class="container">
@@ -120,11 +121,11 @@
       </div>
      </div>                             
 
-<!--product brand-->
+<!-- Product brand -->
 <div id="clients" class="bg-dark">
       <div class="container">
         <div class="row">
-          <!-- left column (content)-->
+          <!-- Left column (content) -->
           <div class="col-md-6 d-flex justify-content-start align-items-center">
             <h2 class="text-white fw-bold mb-3 display-4 pt-4">
               Trusted by brands all over the world
@@ -132,7 +133,7 @@
             
           </div>
 
-        <!--image box-->
+        <!-- Image box -->
           <div class="col-md-6">
             <div class="row">
               <div class="col-6 col-lg-4 mt-3">
@@ -182,5 +183,10 @@
         </div>
       </div>
     </div>
+@else
+<?php
+abort(404)
+?>
+@endif
 
 @endsection

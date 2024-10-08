@@ -55,6 +55,7 @@
             >Home</a
             >
         </li>
+        @auth
         <li class="nav-item">
             <a class="nav-link text-light" href="/products">Products</a>
         </li>
@@ -64,13 +65,17 @@
         <li class="nav-item">
             <a class="nav-link text-light" href="/contact">Contact Us</a>
         </li>
-        </ul>
+       </ul>
 
-        <a type="button" class="btn btn-dark me-3" href="/cart"><i class="bi bi-bag-fill"></i></i></a>
-        @auth
+       <a type="button" class="btn btn-dark me-3 position-relative" href="/cart">
+          <i class="bi bi-bag-fill"></i>
+       </a>
+
+        
             <a type="button" class="btn btn-primary" href='/logout'>Logout</a>
         @else
-            <a type="button" class="btn btn-primary me-1" href='/login'>Login</a>
+        </ul>
+            <a type="button" class="btn btn-primary me-1" href='/login'>Login</a>  
             <a type="button" class="btn btn-primary" href='/signup'>Sign Up</a>
         @endauth
     </div>

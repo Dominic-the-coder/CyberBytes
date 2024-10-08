@@ -4,6 +4,8 @@
 
 @section('content')
 
+<!-- Name form -->
+@if($user)
 <div class="container mt-5">
         <div class="card rounded shadow-lg">
            <div class="card-body">
@@ -19,6 +21,8 @@
            </div>
         </div>   
     </div>
+
+    <!-- Email form -->
    <div class="container mb-3 mt-3">
      <div class="card rounded shadow-lg">
         <div class="card-body">
@@ -46,6 +50,8 @@
         </div>
      </div>
    </div>
+
+   <!-- Feedback form -->
    <div class="container mb-5">
      <div class="card rounded shadow-lg">
         <div class="card-body">
@@ -64,5 +70,10 @@
         </div>
      </div>
    </div>
+@else
+<?php
+abort(404)
+?>
+@endif
 
 @endsection

@@ -14,9 +14,12 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\ErrorController;
 
 // Home page
 Route::get('/', [ HomeController::class, 'loadHomePage' ]);
+
+Route::fallback([ErrorController::class, 'show404']);
 
 //Product page
 // Route::get("/products", [ ProductsController::class, 'loadProductsPage' ]);
@@ -38,6 +41,7 @@ Route::put('/products/edit', [ProductController::class, 'updateProduct'])->name(
 
 //Delete page
 Route::delete('/products/delete/{id}', [ProductController::class, 'deleteProduct'])->name('product.delete');
+Route::post('/products/add',[ProductController::class, 'addProduct'])->name('product.add');
 
 // login page
 Route::get("/login", [

@@ -25,6 +25,15 @@
 }
 /* Home End */
 
+.backcground{
+    background-image: url(../images/black-white-abstract-gradient-studio-background-vector_1258-53723.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    max-width: 100%;
+}
+
 hr{
     height: 20px;
 }

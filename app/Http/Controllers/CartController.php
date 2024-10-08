@@ -14,14 +14,18 @@ class CartController extends Controller
 {
     // Fetch the current user's cart items
     $userId = Auth::id();
+    $user = Auth::user();
     $userCart = Cart::where('user_id', $userId)->with('product')->get();
 
-    return view('cart', compact('userCart'));
+    return view('cart', compact('userCart', 'user'));
 }
+
+
 
 
     public function addToCart(Request $request)
     {
+        // Fetch all the products 
         $userId = Auth::id();
         $request->validate([
             'product_id' => 'required|exists:products,id',
