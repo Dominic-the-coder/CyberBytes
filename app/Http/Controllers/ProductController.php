@@ -9,21 +9,16 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function index()
-    {
-        $user = Auth::user();
+{
+    $user = Auth::user();
 
-        // Fetch products with type 'popular'
-        $popularProducts = Product::where('type', 'popular')->get();
+    $popularProducts = Product::where('type', 'popular')->with('reviews.user')->get();
+    $latestProducts = Product::where('type', 'latest')->with('reviews.user')->get();
+    $saleProducts = Product::where('type', 'sale')->with('reviews.user')->get();
 
-        // Fetch products with type 'latest'
-        $latestProducts = Product::where('type', 'latest')->get();
+    return view('products', compact('popularProducts', 'latestProducts', 'saleProducts', 'user'));
+}
 
-        // Fetch products with type 'sale'
-        $saleProducts = Product::where('type', 'sale')->get();
-
-        // Pass both collections to the Blade view
-        return view('products', compact('popularProducts', 'latestProducts', 'saleProducts', 'user'));
-    }
 
     public function updateProduct(Request $request)
 {

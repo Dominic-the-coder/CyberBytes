@@ -15,47 +15,55 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\ErrorController;
+use App\Http\Controllers\ReviewController;
 
 // Home page
 Route::get('/', [ HomeController::class, 'loadHomePage' ]);
 
+// Error page
 Route::fallback([ErrorController::class, 'show404']);
 
-//Product page
+// Product page
 // Route::get("/products", [ ProductsController::class, 'loadProductsPage' ]);
 
-//About page
+// About page
 Route::get("/about", [ AboutController::class, 'loadAboutPage' ]);
 
-//Contact page
+// Contact page
 Route::get("/contact", [ ContactController::class, 'loadContactPage' ]);
 
-//Cart page
+// Cart page
 Route::get("/cart", [ CartController::class, 'loadCartPage' ])->name('cart.view');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::put('/cart/edit/{id}', [CartController::class, 'editQuantity'])->name('cart.edit');
 
-//Edit page
+// Edit page
 Route::put('/products/edit', [ProductController::class, 'updateProduct'])->name('product.edit');
 
-//Delete page
+// Delete page
 Route::delete('/products/delete/{id}', [ProductController::class, 'deleteProduct'])->name('product.delete');
 Route::post('/products/add',[ProductController::class, 'addProduct'])->name('product.add');
 
-// login page
+// Review page
+Route::post('/reviews/add', [ReviewController::class, 'addReview'])->name('review.add');
+Route::delete('/reviews/delete/{id}', [ReviewController::class, 'deleteReview'])->name('review.delete');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+
+// Login page
 Route::get("/login", [
     LoginController::class,
     'loadLoginPage'
 ]);
 
-// login logic
+// Login logic
 Route::post("/login", [
     LoginController::class,
     'doLogin'
 ]);
 
-// sign up page
+// Sign up page
 Route::get("/signup", [
     SignUpController::class,
     'loadSignUpPage'
@@ -66,16 +74,13 @@ Route::post("/signup", [
     'doSignUp'
 ]);
 
-// logout
+// Logout
 Route::get("/logout", [
     LogoutController::class,
     'logout'
 ]);
 
-Route::view('upload','upload');
-route::post('upload', [UploadController::class, 'upload']);
-
-
+// Route to product
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 // Post routes

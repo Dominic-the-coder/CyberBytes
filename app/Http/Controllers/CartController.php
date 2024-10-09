@@ -71,4 +71,18 @@ $cartItem = Cart::findOrFail($id);
         // If not found, return error
         return redirect()->route('cart.view')->with('error', 'Item not found');
     }
+
+    public function checkout(Request $request)
+{
+    // Assuming you have a method to clear the cart
+    // This method should also handle payment processing, if applicable.
+    // Clear the cart logic here
+    $userId = Auth::id();
+    Cart::where('user_id', $userId)->delete();
+    // Get total amount from the request
+    $total = $request->input('total');
+
+    // Redirect to product index with a success message
+    return redirect()->route('products.index')->with('lol', "Thanks for paying RM " . number_format($total, 2) . " to buy our products!");
+}
 }

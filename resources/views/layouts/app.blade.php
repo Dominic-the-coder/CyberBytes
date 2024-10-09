@@ -86,21 +86,21 @@
 <!--footer-->
 
 <div id="footer" class="d-flex justify-content-center pt-5 bg-black">
-      <div class="container">
-        <div class="row feet">
-          <div class="col-lg-6">
-            <p class="fs-5 text-white">© 2024 CyberBytes.com (For Educational Purposes Only)</p>
-          </div>
-          <div class="col-lg-6 d-flex justify-content-end">
-            <p class="fs-3 text-white">
-              <i class="bi bi-facebook"></i>
-              <i class="bi bi-twitter"></i>
-              <i class="bi bi-instagram"></i>
-            </p>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row feet">
+      <div class="col-lg-6">
+        <p class="fs-5 text-white">© 2024 CyberBytes.com (For Educational Purposes Only)</p>
       </div>
-    </div> 
+      <div class="col-lg-6 d-flex justify-content-end">
+        <p class="fs-3 text-white">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+          <i class="bi bi-instagram"></i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div> 
 
 <!--Java Script-->    
 <script
