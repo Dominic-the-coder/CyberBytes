@@ -101,7 +101,7 @@
                 <input type="hidden" name="total" value="{{ $userCart->sum(function($cartItem) {
                     return $cartItem->product->price * $cartItem->quantity;
                 }) }}">
-                <button type="submit" class="btn btn-warning mt-3">Checkout</button>
+                <button type="submit" class="btn btn-primary mt-3">Checkout</button>
             </form>
         </div>
     @endif
