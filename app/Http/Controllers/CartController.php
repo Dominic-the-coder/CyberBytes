@@ -20,9 +20,6 @@ class CartController extends Controller
     return view('cart', compact('userCart', 'user'));
 }
 
-
-
-
     public function addToCart(Request $request)
     {
         // Fetch all the products 
