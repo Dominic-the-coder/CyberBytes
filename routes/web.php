@@ -16,12 +16,10 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UsersController;
 
 // Home page
 Route::get('/', [ HomeController::class, 'loadHomePage' ]);
-
-// Error page
-Route::fallback([ErrorController::class, 'show404']);
 
 // Product page
 // Route::get("/products", [ ProductsController::class, 'loadProductsPage' ]);
@@ -49,6 +47,13 @@ Route::post('/products/add',[ProductController::class, 'addProduct'])->name('pro
 Route::post('/reviews/add', [ReviewController::class, 'addReview'])->name('review.add');
 Route::delete('/reviews/delete/{id}', [ReviewController::class, 'deleteReview'])->name('review.delete');
 Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+// Users page
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::put('/users/{id}', [UsersController::class, 'update'])->name('user.update');
+Route::delete('/users/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
+
+// Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.delete');
 
 
 // Login page

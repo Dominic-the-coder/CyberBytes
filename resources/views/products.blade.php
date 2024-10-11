@@ -108,7 +108,7 @@
 
         <!-- Modal Trigger Buttons -->
         <div class="d-flex justify-content-center gap-1">
-            @if($user->role_id == 1)
+            @if($user->role_id == 1 || auth()->user()->role_id === 2 )
                 <!-- Admin Actions -->
                 <form action="{{ route('product.delete', $product->id) }}" method="POST">
                     <!-- Laravel CSRF token for security -->
@@ -278,7 +278,7 @@
 
         <!-- Modal Trigger Buttons -->
         <div class="d-flex justify-content-center gap-1">
-            @if($user->role_id == 1)
+            @if($user->role_id == 1 || auth()->user()->role_id === 2 )
                 <!-- Admin Actions -->
                 <form action="{{ route('product.delete', $product->id) }}" method="POST">
                     @csrf
@@ -288,7 +288,7 @@
                 <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#editmodal-{{ $product->id }}">
                     Edit
                 </button>
-            @else
+             @else
                 <!-- User Actions -->
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-{{ $product->id }}">
                     Add to Cart

@@ -14,16 +14,23 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'Admin@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
-            'role_id' => 1
+            'role_id' => 1 // Admin
         ]);
 
         User::create([
-            'name' => 'tester1',
+            'name' => 'Logan',
+            'email' => 'logan@gmail.com',
+            'password' => bcrypt('password'),
+            'role_id' => 2 // Editor role (role_id 2 for Editor)
+        ]);
+
+        User::create([
+            'name' => 'Tester1',
             'email' => 'tester1@gmail.com',
             'password' => bcrypt('password'),
-            'role_id' => 2
+            'role_id' => 3 // Normal User role (role_id 3 for Normal User)
         ]);
     }
 }

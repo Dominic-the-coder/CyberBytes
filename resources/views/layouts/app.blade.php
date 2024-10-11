@@ -51,11 +51,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          
             <a class="nav-link text-light" aria-current="page" href="/"
             >Home</a
             >
         </li>
         @auth
+
         <li class="nav-item">
             <a class="nav-link text-light" href="/products">Products</a>
         </li>
@@ -65,14 +67,18 @@
         <li class="nav-item">
             <a class="nav-link text-light" href="/contact">Contact Us</a>
         </li>
+        @if(auth()->user()->role_id ===1 || auth()->user()->role_id ===2)
+        <li class="nav-item">
+            <a class="nav-link text-light" href="/users">Users</a>
+        </li>
+        @endif
        </ul>
-
+       
        <a type="button" class="btn btn-dark me-3 position-relative" href="/cart">
           <i class="bi bi-bag-fill"></i>
        </a>
-
-        
-            <a type="button" class="btn btn-primary" href='/logout'>Logout</a>
+            
+        <a type="button" class="btn btn-primary" href='/logout'>Logout</a>
         @else
         </ul>
             <a type="button" class="btn btn-primary me-1" href='/login'>Login</a>  
